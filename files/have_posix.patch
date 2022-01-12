@@ -1,0 +1,13 @@
+--- ./signals.c
++++ ./signals.c
+@@ -266,8 +266,10 @@
+     case SIGQUIT:
+ #endif
+
++#if defined (HAVE_POSIX_SIGNALS)
+       if (block_sig)
+        sigprocmask (SIG_BLOCK, &set, &oset);
++#endif
+
+       rl_echo_signal_char (sig);
+       rl_cleanup_after_signal ();
