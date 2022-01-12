@@ -9,6 +9,8 @@
       [
         "./configure",
         "#{os == 'windows' ? '--host=x86_64-w64-mingw32': ''}",
+        "--with-curses",
+        "LDFLAGS=-L#{esy-ncurses.lib}",
         "--prefix=#{self.install}"
       ],
       "make"
@@ -20,6 +22,9 @@
         "val": "#{self.lib / 'pkgconfig'}",
         "scope": "global"
       }
+    },
+    "dependencies": {
+      "esy-ncurses": "*"
     }
   }
 }

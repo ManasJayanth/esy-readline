@@ -30,7 +30,7 @@ esac
 new_section "Setting up verdaccio"
 verdaccio -c ./.ci/verdaccio-config.yaml &
 sleep 1
-VERDACCIO_PID=$(netstat -ano | grep 4873 | awk '{ print $5 }' | head -n1) # $! doesn't work on Windows
+VERDACCIO_PID=$(netstat -ano | gre 4873 | awk '{ print $5 }' | head -n1) # $! doesn't work on Windows
 
 new_section "Packaging for NPM"
 node scripts/package.js 
@@ -44,7 +44,7 @@ export ESY__PREFIX=$HOME/_esy_test/prefix
 rm -rf $ESY__PREFIX
 mkdir -p $ESY__PREFIX
 esy i --npm-registry $REGISTRY_URL
-esy b
+esy b # uild-shell -p esy-readline
 rm -rf esy.lock
 cd ../
 
