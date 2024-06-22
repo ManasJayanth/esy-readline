@@ -1,9 +1,8 @@
-![Build and test the esy
-package](https://github.com/ManasJayanth/esy-packages-template/workflows/Build%20and%20test%20the%20esy%20package/badge.svg)
+[![Build and test the esy package](https://github.com/ManasJayanth/esy-readline/actions/workflows/workflow.yml/badge.svg)](https://github.com/ManasJayanth/esy-readline/actions/workflows/workflow.yml)
 
-# esy-hello
+# esy-readline
 
-`esy-hello` is sample package, [`hello`](https://github.com/esy/test-hello-c), packaged for [`esy`](https://esy.sh/).
+`esy-readline` is sample package, [`readline`](https://tiswww.case.edu/php/chet/readline/rltop.html), packaged for [`esy`](https://esy.sh/).
 
 ## Why
 `esy` can not only fetch and install Reason and OCaml libraries and tools,
@@ -13,22 +12,22 @@ etc. Users don't have to install them separately, nor have to worry if
 they have installed the correct version. Read more at the docs about
 [benefits for opting for esy packages](https://esy.sh#TODO).
 
-## How to use `esy-hello`?
+## How to use `esy-readline`?
 
-`esy-hello` can be used from both NPM and directly from Github.
+`esy-readline` can be used from both NPM and directly from Github.
 
 ### From NPM 
 
-`esy-hello` is deployed on NPM can be found
+`esy-readline` is deployed on NPM can be found
 [here](https://www.npmjs.com/package/TODO).
 
-You can simply run `esy add esy-hello` to install it, or specify it in
+You can simply run `esy add esy-readline` to install it, or specify it in
 `package.json` and run `esy`.
 
 ```diff
 {
   "dependencies": {
-+   "esy-hello": "*"
++   "esy-readline": "*"
   }
 }
 ```
@@ -38,7 +37,7 @@ You can simply run `esy add esy-hello` to install it, or specify it in
 ```json
 {
   "dependencies": {
-    "esy-hello": "esy-packages/esy-hello"
+    "esy-readline": "esy-packages/esy-readline"
   }
 }
 ```
@@ -49,7 +48,7 @@ To use a specific commit,
 
 ```diff
   "dependencies": {
-+   "esy-hello": "esy-packages/esy-hello#<commit hash>"
++   "esy-readline": "esy-packages/esy-readline#<commit hash>"
   }
 ```
 
@@ -120,7 +119,7 @@ package with a `package.json` or `esy.json` depends on it.
 ```json
 {
   "dependencies": {
-    esy-hello": "*"
+    esy-readline": "*"
   }
 }
 ```
@@ -135,5 +134,3 @@ esy b
 If the package is a library, it's a good idea to write a small program
 to actually check if the library works. Referring how the
 corresponding package is being tested in Homebrew or Arch Linux.
-
-Checkout [ci-test.sh](./ci-test.sh) for reference, used on the CI.
