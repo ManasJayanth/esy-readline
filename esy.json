@@ -4,6 +4,9 @@
   "description": "Gnu readline packaged for esy",
   "source": "https://ftp.gnu.org/gnu/readline/readline-8.1.tar.gz#sha256:f8ceb4ee131e3232226a17f51b164afc46cd0b9e6cef344be87c65962cb82b02",
   "override": {
+    "buildEnv": {
+      "PATH": "#{ os == 'windows' ? '/usr/x86_64-w64-mingw32/bin:/usr/x86_64-w64-mingw32/sys-root/mingw/bin' : '' }#{ : $PATH}"
+    },
     "build": [
       "bash -c 'patch --ignore-whitespace -p1 < have_posix.patch'",
       "./configure #{os == 'windows' ? '--host=x86_64-w64-mingw32': ''} #{os == 'windows' || os == 'linux' ? '--without-curses' : '--with-curses'} LDFLAGS=-L#{esy-ncurses.lib} #{os == 'windows' ? 'CFLAGS=-DNEED_EXTERN_PC=1': ''} --prefix=#{self.install}",
@@ -12,15 +15,13 @@
     "install": "make install",
     "buildsInSource": true,
     "exportedEnv": {
-      "PKG_CONFIG_PATH": {
-        "val": "#{self.lib / 'pkgconfig'}",
-        "scope": "global"
-      }
-    },
-    "exportedEnv": {
       "LD_LIBRARY_PATH": {
         "scope": "global",
         "val": "#{esy-ncurses.lib : $LD_LIBRARY_PATH}"
+      },
+      "PKG_CONFIG_PATH": {
+        "val": "#{self.lib / 'pkgconfig' : $PKG_CONFIG_PATH}",
+        "scope": "global"
       }
     },
     "dependencies": {
