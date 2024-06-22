@@ -1,11 +1,12 @@
 {
   "esy": {
     "build": [
-    "#{os == 'windows' ? 'x86_64-w64-mingw32-':''}gcc test.c -I#{ esy-readline.install / 'include'} -L#{esy-readline.lib} -lreadline -o test",
-    "bash -c 'echo testing | ./test'" 
+      "#{os == 'windows' ? 'x86_64-w64-mingw32-':''}gcc test.c -I#{ esy-readline.install / 'include'} -L#{esy-readline.lib} -L#{esy-ncurses.lib} -lreadline -lncurses -o test",
+      "bash -c 'echo testing | ./test'"
     ]
   },
   "dependencies": {
+    "esy-ncurses": "*",
     "esy-readline": "8.1.1"
   }
 }
